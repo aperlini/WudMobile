@@ -88,9 +88,13 @@ span.back-text {
 
 /* ----- header ----- */
 
+.bar.bar-main {
+  background:#25313e;
+}
+
 .bar.bar-stable,
 .bar.bar-header {
-	background:#25313e;
+	/*background:#25313e;*/
 }
 
 .bar.bar-stable .title, 
