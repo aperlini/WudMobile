@@ -1,0 +1,19 @@
+<ion-tabs class="tabs-icon-top tabs-bottom">
+
+  <ion-tab title="Results" icon="icon-eye" href="#/tab/results">
+    <ion-nav-view name="results-tab"></ion-nav-view>
+  </ion-tab>
+
+  <ion-tab title="Options" icon="icon-cog" href="#/tab/options" badge="isOptionActive" badge-style="badge-balanced">
+    <ion-nav-view name="options-tab"></ion-nav-view>
+  </ion-tab>
+
+  <ion-tab title="Favorites" icon="icon-heart-empty" ui-sref="tabs.favorites" badge="favoritesIndicator" badge-style="badge-balanced">
+    <ion-nav-view name="favorites-tab"></ion-nav-view>
+  </ion-tab>
+
+  <ion-tab title="About" icon="ion-information-circled" ui-sref="tabs.about">
+    <ion-nav-view name="about-tab"></ion-nav-view>
+  </ion-tab>
+
+</ion-tabs>

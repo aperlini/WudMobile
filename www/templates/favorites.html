@@ -1,0 +1,49 @@
+<ion-view>
+
+  <ion-content class="content-list">
+    <div class="subtitle">
+	    <h2 class="title">Favorites</h2>
+    </div>
+    <div ng-repeat="favorite in favoritesList" class="card favorite">
+      <div class="item tabs tabs-secondary tabs-icon-left item-divider">
+        <a class="tab-item browse-to" href="#" ng-click="openExt(favorite.link)">
+          <i class="icon-link-ext-alt"></i>
+          Link
+        </a>
+        <a class="tab-item browse-to" href="#" ng-click="openExt(favorite.source)">
+          <i class="icon-link"></i>
+          Source
+        </a>
+        <a class="tab-item" href="#" ng-click="deleteFavorite(favorite.id)">
+          <i class="icon-cancel-circle"></i>
+          Delete
+        </a>
+      </div>
+      <div class="item item-text-wrap body-img">
+        <div class="img-wrapper imagebox">
+          <img ng-src="{{ favorite.image }}" alt="{{ favorite.image }}">
+        </div>
+      </div>
+	    <div class="item item-text-wrap item-divider">
+        <p class="title">
+         {{ favorite.title }}
+        </p>
+      </div>
+      <button ng-click="deleteFavorite(favorite.id)" class="delete-favorite"><i class="icon-cancel-circle"></i></button>
+    </div>
+
+    <div class="item item-content" ng-if="favoritesIndicator">
+      <div class="button-bar ">
+        <a href="#" ng-click="deleteFavorites()" class="button button-assertive button-block no-link">
+          Delete List 
+          <i class="icon-trash-empty"></i>
+        </a>
+        <a href="#" ng-click="modal.show()" class="button button-balanced button-block no-link">
+          Send List
+          <i class="icon-email"></i>
+        </a>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>
+  

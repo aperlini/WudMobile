@@ -1,0 +1,61 @@
+<ion-view>
+              
+  <ion-content class="has-header has-subheader-detail">
+    
+    <ul class="row actions positive">
+      <li>
+        <a href="#" class="browse-to" ng-click="openExt(detail.link)">
+          <div class="icon-link-ext-alt"></div>
+          <span>{{ detail.api }}</span>
+        </a>
+      </li>
+      <li>
+        <a href="#" class="browse-to" ng-click="openExt(detail.source)">
+          <div class="icon-link"></div>
+          <span>View Source</span>
+        </a>
+      </li> 
+      <li>
+        <a href="#" source-id="{{ detail.id }}" favorite-link-detail>
+          <div id="favorite-icon" source-id="{{detail.id}}" class="icon-heart-empty" ng-class="{'active icon-heart' : isFavoriteDetail}"></div>
+        </a> 
+        <div class="link-detail">Add to favorites</div>
+      </li>
+    </ul>
+ 
+    <div class="img-wrapper detail imagebox">
+      <img ng-src="{{ detail.image }}" alt="{{ detail.image }}" >
+    </div>
+    
+    <div class="inner-detail">
+      <p class="label-title">{{ detail.title }}</p>
+    </div>
+
+    <div class="padding">
+
+      <div class="content" ng-hide="isdescription">
+        <p class="label-detail" >Description</p>
+        <p id="description-detail">{{ detail.description }}</p>
+      </div>
+      <div class="content" ng-hide="isdate">
+        <p class="label-detail">Date</p>
+        <p id="date-detail">{{ detail.date }}</p>
+      </div>
+
+      <div class="content" ng-repeat="(key, val) in edmdetails">
+        <p class="label-detail">{{ key }}</p>
+        <p id="description-detail">{{ val }}</p>
+      </div>
+      
+    </div>
+
+  </ion-content>
+
+  <ion-footer-bar ng-hide="loadmoredetail" >
+    <button ng-click="loadDetail(detail.id)" id="loadmoredetail" class="button button-full button-assertive more-detail">
+      <ion-spinner ng-hide="spinnerdetail" class="detail" ></ion-spinner>
+      <span class="more-detail" ng-show="loaderDetailLabel"><i class="icon-plus-circle-1"></i>Load More</span>
+    </button>
+  </ion-footer-bar>
+
+</ion-view>

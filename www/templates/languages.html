@@ -1,0 +1,17 @@
+<ion-view>
+  <div class="bar bar-subheader">
+    <h2 class="title icon-globe">Languages</h2>
+  </div> 
+  <ion-content class="padding has-subheader">
+    <div class="button-bar">
+    	<a href="#" ng-repeat="item in langparams" ng-click="activeButton(item)" item="item" ng-class="!item.state ? '' : 'button-balanced'" class="button button-raised ink-dark">
+       <img ng-src="./img/{{item.flag}}" alt=""><br>
+       {{ item.title }} 
+      </a>
+    </div>
+     <div class="button-bar" style="padding:20px 0;">
+	  <a class="button button-balanced icon-arrows-ccw">Refresh</a>
+	  <a class="button">Reset</a>
+	</div>
+  </ion-content>
+</ion-view>

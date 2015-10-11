@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title>WudMobile</title>
+    
+    <link href="http://fonts.googleapis.com/css?family=Open%20Sans%3A400%2C300%2C600%2C700" rel="stylesheet" type="text/css">
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/fontello.css">
+    <link rel="stylesheet" href="css/rzslider.css">
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+    <link href="css/ionic.app.css" rel="stylesheet">
+    -->
+
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+  
+    <script src="lib/rzslider/rzslider.min.js"></script>
+
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="cordova.js"></script>
+
+    <script src="js/patches/angular-ios9-uiwebview.patch.js"></script>
+
+    <!-- your app's js -->
+    <script src="js/app.js"></script>
+
+    <!-- Services -->
+    <script src="js/services/ItemsService.js"></script>
+    <script src="js/services/CollectionsService.js"></script>
+    <script src="js/services/DataEDMService.js"></script>
+    <script src="js/services/DataDPLAService.js"></script>
+    <script src="js/services/FavoritesService.js"></script>
+    <script src="js/services/MainDataService.js"></script>
+    <script src="js/services/OptionsService.js"></script>
+    <script src="js/services/PaginationService.js"></script>
+    
+    <!-- Controllers -->
+    <script src="js/controllers/DetailController.js"></script>
+    <script src="js/controllers/FavoritesController.js"></script>
+    <script src="js/controllers/SearchController.js"></script>
+    <script src="js/controllers/OptionsController.js"></script>
+
+    <!-- Directives -->
+    <script src="js/directives/FormDirective.js"></script>
+    <script src="js/directives/FavoritesDirective.js"></script>
+    <script src="js/directives/DetailDirective.js"></script>
+    <script src="js/directives/LinkDirective.js"></script>
+    <script src="js/directives/OptionsDirective.js"></script>
+
+  </head>
+
+  <body ng-app="WudApp">
+    
+      <!-- <ion-nav-bar>
+        <ion-nav-back-button class="button-clear">
+          <i class="ion-arrow-left-c"></i>
+          Back 
+        </ion-nav-back-button>
+        <h1 class="title">WUD</h1> 
+      </ion-nav-bar> -->
+
+      <!-- <ion-header-bar>
+        <img id="logo-unifr" class="button-left" ng-if="!isBackButton" ng-src="./img/uni-fr.svg" alt="logo unifr" width="25">
+        <h1 class="title">WUD</h1> 
+      </ion-header-bar> -->
+
+        <ion-nav-bar class="bar-positive">
+          <ion-nav-back-button>
+          </ion-nav-back-button>
+        </ion-nav-bar>
+             
+        <ion-nav-view></ion-nav-view>
+
+      <!-- <ion-nav-view animation="slide-left-right"></ion-nav-view>
+      
+      <ion-content has-header="true" padding="true"></ion-content> -->
+
+  </body>
+</html>

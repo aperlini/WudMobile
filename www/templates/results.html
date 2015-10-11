@@ -1,0 +1,36 @@
+<ion-view ng-init="initApp()" >
+
+  <ion-nav-buttons side="right">
+    <p id="nbr-results" class="button-right"><span class="icon-eye">{{ infos.items }}</span></p>
+  </ion-nav-buttons>
+
+  <form ng-submit="search()">
+    <div class="bar bar-subheader item-input-inset" ng-class="{ 'search-scroll' : isScrollActive }" >
+      <label class="item-input-wrapper" ng-class="!item.state ? '' : 'button-balanced'">
+        <i class="icon ion-search placeholder-icon"></i>
+        <input type="search" placeholder="Search" ng-model="queryterm" ng-class="{ 'error' : errorOnQuery }">
+      </label>
+      <span id="resetquery" ng-hide="cancelbasicbtn" class="icon-cancel-circle cancelSearch"></span>
+    </div>
+  </form> 
+
+  <ion-content class="content-list" ng-class="{ 'has-subheader' : !isScrollActive }" on-scroll="getScrollState()">
+    
+    <div ng-repeat="item in items" class="card" ng-click="showpanel(item.id)">
+        <div class="item item-text-wrap body-img">
+          <div class="img-wrapper imagebox">
+            <img ng-src="{{ item.image }}" alt="{{ item.image }}">
+          </div>
+        </div>
+        <div class="item item-divider">
+          <p class="title">
+           {{ item.title }}
+          </p>
+        </div>
+        <i class="noLink icon-heart-empty liked ng-isolate-scope" source-id="{{ item.id }}" favorite-link-list stop-event></i>
+    </div>
+
+     <ion-infinite-scroll ng-if="!noMoreItemsAvailable" immediate-check="false" on-infinite="loadmore()" distance="1%"></ion-infinite-scroll>
+
+  </ion-content>
+</ion-view>

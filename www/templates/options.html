@@ -1,0 +1,64 @@
+<ion-view>
+  <!-- <div class="bar bar-subheader">
+    <h2 class="title icon-cog">Search Options</h2>
+  </div> -->
+  <!-- <ion-content class="padding has-subheader"> -->
+
+  <ion-content class="padding">
+
+  <div id="options-list" class="list" options-status>
+
+    <span class="item item-divider icon-hourglass">
+      Timeline
+    </span>
+
+    <div class="item item-content" option-timeline>
+      <rzslider
+        rz-slider-floor="priceSlider.floor"
+        rz-slider-ceil="priceSlider.ceil"
+        rz-slider-model="priceSlider.min"
+        rz-slider-high="priceSlider.max"
+        rz-slider-step="10" ng-model="timelinevalues"></rzslider>
+
+      <!-- <input type="text" ng-model="priceSlider.min"/><br/>
+      <input type="text" ng-model="priceSlider.max"/><br/> -->
+      
+    </div>
+ 
+    <span class="item item-divider icon-doc">
+      Mediatypes
+    </span>
+
+    <div class="item item-content" option-mediatypes>
+      <div class="button-bar" >
+        <a href="#" ng-repeat="item in mediaparams" ng-model="item.state" ng-click="activeButtonMedia(item)" item="item" ng-class="!item.state ? '' : 'button-media-active'" class="button ink-dark mediatypes no-link">
+          <i class="{{ item.icon }}"></i><br/>
+          <span>{{ item.title }}</span>
+        </a>
+      </div>
+    </div>
+
+    <span class="item item-divider icon-globe">
+      Languages
+    </span>
+    
+    <div class="item item-content" option-languages>
+      <div class="button-bar ">
+        <a href="#" ng-repeat="item in langparams" ng-click="activeButtonLang(item); setRadioModelStatus(item.title)" ng-model="item.state" item="item" ng-class="!item.state ? '' : 'button-lang-active'" class="button button-raised ink-dark no-link">
+         <img ng-src="./img/{{item.flag}}" alt=""><br>
+        </a>
+      </div>
+    </div>
+
+    <div class="item item-content" option-actions>
+      <div class="button-bar ">
+        <a href="#" ng-click="search()" class="button button-balanced button-block icon-arrows-ccw no-link">Refresh</a>
+        <a href="#" ng-click="initOptions()" class="button button-dark button-block no-link">Reset</a>
+      </div>
+    </div>
+
+  </div>
+
+  </ion-content>
+
+</ion-view>
