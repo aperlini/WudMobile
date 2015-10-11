@@ -1,4 +1,4 @@
-WudApp.controller('FavoritesCtrl', function($scope, $rootScope, FavoritesService, $window, $ionicModal){
+WudApp.controller('FavoritesCtrl', function($scope, $rootScope, FavoritesService, $window, $ionicPopup, $timeout){
 
 	// Checking Favorites
 	var checkFavorites = function() {
@@ -70,13 +70,35 @@ WudApp.controller('FavoritesCtrl', function($scope, $rootScope, FavoritesService
 		}
 	}
 
-	// Modal email
-	$ionicModal.fromTemplateUrl('templates/modal.html', {
-		scope : $scope,
-		animation : 'mh-slide'
-	}).then(function(modal){
-		$scope.modal = modal;
-	});
+	// Popup email
+	$scope.showPopupEmail = function() {
+
+		var popupmsg = $ionicPopup.show({
+			template: '<input type="email">',
+			title : 'Your email',
+			subTitle : 'Please enter your email',
+			scope : $scope,
+			buttons : [
+				{ text : 'cancel' },
+				{ 
+					text : '<b>save</b>',
+					type : 'button-positive',
+					onTap : function(e) {
+						e.preventDefault();
+					}
+				}
+			]
+		});
+
+		popupmsg.then(function(res){
+			console.log('tapped', res)
+		});
+
+		$timeout(function(){
+			popupmsg.close();
+		}, 3000);
+
+	}
 
 	checkFavorites();
 

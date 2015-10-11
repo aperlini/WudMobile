@@ -8,7 +8,7 @@
     <div class="bar bar-subheader item-input-inset" ng-class="{ 'search-scroll' : isScrollActive }" >
       <label class="item-input-wrapper" ng-class="!item.state ? '' : 'button-balanced'">
         <i class="icon ion-search placeholder-icon"></i>
-        <input type="search" placeholder="Search" ng-model="queryterm" ng-class="{ 'error' : errorOnQuery }">
+        <input type="search" id="search-input" placeholder="Search" ng-model="queryterm">
       </label>
       <span id="resetquery" ng-hide="cancelbasicbtn" class="icon-cancel-circle cancelSearch"></span>
     </div>

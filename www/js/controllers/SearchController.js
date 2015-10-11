@@ -1,5 +1,5 @@
 // Search
-WudApp.controller('SearchCtrl', function($scope, $ionicLoading, ItemsService, CollectionsService, FavoritesService, PaginationService, OptionsService, DataEDMService, DataDPLAService, MainDataService, $timeout, $ionicScrollDelegate, $state, $ionicScrollDelegate, $stateParams, $rootScope){
+WudApp.controller('SearchCtrl', function($scope, $ionicLoading, ItemsService, CollectionsService, FavoritesService, PaginationService, OptionsService, DataEDMService, DataDPLAService, MainDataService, $timeout, $ionicScrollDelegate, $state, $ionicScrollDelegate, $stateParams, $rootScope, $ionicPopup, $window){
 
   // Search term
   $scope.queryterm = '';
@@ -12,9 +12,6 @@ WudApp.controller('SearchCtrl', function($scope, $ionicLoading, ItemsService, Co
 
   // Loadmore status
   $scope.noMoreItemsAvailable = true;
-
-  // Error no results input form
-  $scope.errorOnQuery = false;
 
   // Favorites indicator
   if(FavoritesService.getCurrentNbrFavorites() > 0) {
@@ -108,9 +105,31 @@ WudApp.controller('SearchCtrl', function($scope, $ionicLoading, ItemsService, Co
     $ionicScrollDelegate.scrollTop();
 
     // close keyboard after query has been sent
-    // cordova.plugins.Keyboard.close();
+    cordova.plugins.Keyboard.close();
 
   };
+
+  // Popup email
+  $scope.showAlert = function(query) {
+     var alertPopup = $ionicPopup.alert({
+       title: 'Oups : "no matching results"',
+       template: '<p> No results for"' + query + '" </p>',
+       buttons : [
+          {
+            text : 'ok',
+            onTap : function(e) {
+              $scope.queryterm = '';
+              $timeout(function(){
+                $window.document.getElementById('search-input').focus();
+              });
+            }
+          }
+       ]
+     });
+     // alertPopup.then(function(res) {
+     //   console.log('Thank you for not eating my delicious ice cream cone');
+     // });
+   };
 
   $scope.sendQuery = function() {
 
@@ -157,10 +176,6 @@ WudApp.controller('SearchCtrl', function($scope, $ionicLoading, ItemsService, Co
       // If returned collections are empty
       if(!itemsCollections) {
 
-        // $scope.queryterm = 'empty';
-
-        $scope.errorOnQuery = true;
-
         // Reset any previous collection
         CollectionsService.resetCollections();
 
@@ -168,6 +183,11 @@ WudApp.controller('SearchCtrl', function($scope, $ionicLoading, ItemsService, Co
 
         // Dismiss modal
         $ionicLoading.hide();
+
+        // Show alert
+        $scope.showAlert($scope.queryterm);
+
+        return false;
 
       } else {
 

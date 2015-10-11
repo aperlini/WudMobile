@@ -23,7 +23,7 @@ WudApp.directive('isBackButton', function($rootScope){
 		restrict: 'C',
 		controller : function($scope) {
 
-<<<<<<< HEAD
+
 			// $rootScope.$on('$ionicView.beforeEnter', function (e, data) { 
 			// 	if (data.enableBack) {
 			// 		$rootScope.isBackButton = data.enableBack;
@@ -49,18 +49,6 @@ WudApp.directive('noLink', function() {
             }
         }
    };
-=======
-			$rootScope.$on('$ionicView.beforeEnter', function (e, data) { 
-				if (data.enableBack) {
-					$rootScope.isBackButton = data.enableBack;
-				} else {
 
-					$rootScope.isBackButton = false;
-					
-				}
-			});
-		}
-	}
-
->>>>>>> master
+		
 });
