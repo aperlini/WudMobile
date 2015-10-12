@@ -1,20 +1,20 @@
 <ion-view>
 
-  <ion-content class="content-list">
+  <ion-content has-bouncing="false" class="content-list">
     <div class="subtitle">
 	    <h2 class="title">Favorites</h2>
     </div>
     <div ng-repeat="favorite in favoritesList" class="card favorite">
       <div class="item tabs tabs-secondary tabs-icon-left item-divider">
-        <a class="tab-item browse-to" href="#" ng-click="openExt(favorite.link)">
+        <a href="#" class="tab-item browse-to no-link" ng-click="openExt(favorite.link)">
           <i class="icon-link-ext-alt"></i>
           Link
         </a>
-        <a class="tab-item browse-to" href="#" ng-click="openExt(favorite.source)">
+        <a href="#" class="tab-item browse-to no-link" ng-click="openExt(favorite.source)">
           <i class="icon-link"></i>
           Source
         </a>
-        <a class="tab-item" href="#" ng-click="deleteFavorite(favorite.id)">
+        <a href="#" class="tab-item no-link" ng-click="deleteFavorite(favorite.id)">
           <i class="icon-cancel-circle"></i>
           Delete
         </a>

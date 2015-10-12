@@ -1,5 +1,5 @@
 // Search
-WudApp.controller('SearchCtrl', function($scope, $ionicLoading, ItemsService, CollectionsService, FavoritesService, PaginationService, OptionsService, DataEDMService, DataDPLAService, MainDataService, $timeout, $ionicScrollDelegate, $state, $ionicScrollDelegate, $stateParams, $rootScope, $ionicPopup, $window){
+WudApp.controller('SearchCtrl', function($scope, $ionicLoading, ItemsService, CollectionsService, FavoritesService, PaginationService, OptionsService, DataEDMService, DataDPLAService, MainDataService, $timeout, $ionicScrollDelegate, $state, $stateParams, $rootScope, $ionicPopup, $window){
 
   // Search term
   $scope.queryterm = '';
@@ -11,7 +11,10 @@ WudApp.controller('SearchCtrl', function($scope, $ionicLoading, ItemsService, Co
   $scope.basicinput = true;
 
   // Loadmore status
-  $scope.noMoreItemsAvailable = true;
+  $scope.noMoreItemsAvailable = false;
+
+  // No more result message
+  $scope.noMoreMsg = false;
 
   // Favorites indicator
   if(FavoritesService.getCurrentNbrFavorites() > 0) {
@@ -102,14 +105,16 @@ WudApp.controller('SearchCtrl', function($scope, $ionicLoading, ItemsService, Co
     $scope.sendQuery();
 
     // scroll top
-    $ionicScrollDelegate.scrollTop();
-
+    $timeout(function(){
+      $ionicScrollDelegate.scrollTop();
+    }, 400);
+    
     // close keyboard after query has been sent
-    cordova.plugins.Keyboard.close();
+    // cordova.plugins.Keyboard.close();
 
   };
 
-  // Popup email
+  // Popup error
   $scope.showAlert = function(query) {
      var alertPopup = $ionicPopup.alert({
        title: 'Oups : "no matching results"',
@@ -117,18 +122,17 @@ WudApp.controller('SearchCtrl', function($scope, $ionicLoading, ItemsService, Co
        buttons : [
           {
             text : 'ok',
+            type : 'button-positive focus-error',
             onTap : function(e) {
-              $scope.queryterm = '';
-              $timeout(function(){
-                $window.document.getElementById('search-input').focus();
-              });
+              $scope.$broadcast('onError');
+              // angular.element('#search-input').focus();
+              // $timeout(function(){
+              //   $window.document.getElementById('search-input').focus();
+              // });
             }
           }
        ]
      });
-     // alertPopup.then(function(res) {
-     //   console.log('Thank you for not eating my delicious ice cream cone');
-     // });
    };
 
   $scope.sendQuery = function() {
@@ -176,16 +180,22 @@ WudApp.controller('SearchCtrl', function($scope, $ionicLoading, ItemsService, Co
       // If returned collections are empty
       if(!itemsCollections) {
 
+        // Dismiss modal
+        $ionicLoading.hide();
+
+        // Show alert
+        $scope.showAlert(currentQuery);
+
         // Reset any previous collection
         CollectionsService.resetCollections();
 
         $scope.items = [];
 
-        // Dismiss modal
-        $ionicLoading.hide();
+        // Loadmore status
+        $scope.noMoreItemsAvailable = true;
 
-        // Show alert
-        $scope.showAlert($scope.queryterm);
+        // No more result message
+        $scope.noMoreMsg = false;
 
         return false;
 
@@ -229,8 +239,6 @@ WudApp.controller('SearchCtrl', function($scope, $ionicLoading, ItemsService, Co
         // render view items list
         $scope.items = reformat;
 
-        // console.log(reformat);
-
         // render view current query
         $scope.query = currentQuery;
 
@@ -255,9 +263,42 @@ WudApp.controller('SearchCtrl', function($scope, $ionicLoading, ItemsService, Co
 
           $scope.noMoreItemsAvailable = true;
 
+          // No more result message
+          $scope.noMoreMsg = true;
+
         }
 
       }
+
+    }, function(error){
+
+      $timeout(function(){
+        // Dismiss modal
+        $ionicLoading.hide();
+
+        // var alertPopup = $ionicPopup.alert({
+        //    title: 'Oups : "no matching results"',
+        //    template: '<p> No results for"" </p>',
+        //    buttons : [
+        //       {
+        //         text : 'ok',
+        //         onTap : function(e) {
+        //           $scope.queryterm = '';
+        //           // $timeout(function(){
+        //           //   $window.document.getElementById('search-input').focus();
+        //           // });
+        //         }
+        //       }
+        //    ]
+        //  });
+
+        alert(error.status + ' : ' + error.statusText);
+
+      }, 750);
+
+
+
+      console.log(error);
 
     });
 

@@ -27,7 +27,7 @@ WudApp.factory('MainDataService', function(DataDPLAService, DataEDMService, Item
 
 			}, function(error){
 
-				return deferred.reject('Probleme');
+				return deferred.reject(error);
 
 			});
 

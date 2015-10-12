@@ -61,7 +61,7 @@ WudApp.factory('DataEDMService', function($http, $q, ItemsService){
 
 			}
 
-			return '';
+			return 'no title';
 
 		},
 

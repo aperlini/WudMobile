@@ -40,7 +40,7 @@ p.title {
   max-height:250px;
   overflow:hidden;
   text-align: center;
-  height:320px;
+  height:280px;
   background: #fbfbfb;
 }
 
@@ -218,7 +218,7 @@ p.info {
 
 .card {
   position:relative;
-  margin:25px;
+  margin:15px;
 }
 
 .card:first-child {
@@ -268,6 +268,7 @@ p.info {
   line-height: 2.6em;
   text-transform: none;
   font-size: 0.9em;
+  background: #FFF;
 }
 
 .card i.liked.active {
@@ -420,64 +421,6 @@ div.content p {
   margin-bottom:0;
 }
 
-/* ----- about ----- */
-
-#about {
-  padding:0 25px;
-}
-
-#about p {
-  text-align: justify;
-}
-
-#about p, #about h3,
-#about ul li  {
-  color:#444;
-}
-
-#about a {
-    color: #337ab7;
-    text-decoration: none;
-}
-
-#about p, #about ul li {
-  font-size:12px;
-  line-height:2em;
-}
-
-#about ul {
-  list-style-type:disc !important;
-}
-
-#about ul li {
-  text-align: left;
-  margin:0 20px 20px;
-  list-style-type:disc;
-  line-height:1.5em;
-}
-
-h3.section {
-  text-align: center;
-  border-bottom: solid 1px #DFDFDF;
-  vertical-align: middle;
-  letter-spacing: 0.025em;
-  height:15px;
-  font-weight:200;
-  margin:30px 0;
-}
-
-h3.section span {
-    width: 20%;
-    padding:10px;
-    background: #FFF;
-}
-
-#inner-about section p {
-    margin-bottom:90px;
-}
-
-
-
 /* ----- favorites ----- */
 
 #favorite-icon.icon-heart.active {
@@ -519,4 +462,61 @@ ul.actions-favorites {
   border:solid 1px #337ab7;
   float:left;
   text-align: center;
+}
+
+
+/* ----- about ----- */
+
+#about {
+  padding:0 15px;
+}
+
+#about p {
+  text-align: justify;
+}
+
+#about p, #about h3,
+#about ul li  {
+  color:#444;
+}
+
+#about a {
+    color: #337ab7;
+    text-decoration: none;
+}
+
+#about p, #about ul li {
+  font-size:12px;
+  line-height:2em;
+}
+
+#about ul {
+  list-style-type:disc !important;
+}
+
+#about ul li {
+  text-align: left;
+  margin:0 20px 20px;
+  list-style-type:disc;
+  /*line-height:1.5em;*/
+}
+
+h3.section {
+  text-align: center;
+  border-bottom: solid 1px #DFDFDF;
+  vertical-align: middle;
+  letter-spacing: 0.025em;
+  height:15px;
+  font-weight:200;
+  margin:30px 0;
+}
+
+h3.section span {
+    width: 20%;
+    padding:10px;
+    background: #FFF;
+}
+
+#inner-about section p {
+    margin-bottom:90px;
 }

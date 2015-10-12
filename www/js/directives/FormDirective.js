@@ -18,7 +18,7 @@ WudApp.directive('cancelSearch', function($timeout){
 				// focus input on cancel
 				$timeout(function(){
 					element.parent().find('input')[0].focus()
-				}, 750);
+				});
 				
 			});
 
@@ -27,6 +27,66 @@ WudApp.directive('cancelSearch', function($timeout){
 	}
 
 });
+
+WudApp.directive('searchInput', function($timeout){
+
+	return {
+		restrict : 'C',
+		controller : function($scope, $element) {
+
+			$scope.$on('onError', function(){
+
+				// empty input
+				$scope.queryterm = '';
+
+				// hide cancel btn basic
+				$scope.cancelbasicbtn = true;
+
+				// if error reset class
+				$scope.errorOnQuery = false;
+
+				// focus input on cancel
+				$timeout(function(){
+					$element[0].focus();
+				});
+
+			});
+
+		}
+	}
+
+});
+
+WudApp.directive('focusInput', function($timeout){
+
+	return {
+		restrict : 'C',
+		link : function(scope, element, attrs) {
+
+			// focus input on cancel
+			$timeout(function(){
+				element[0].focus()
+			}, 750);
+
+		}
+	}
+
+});
+
+// WudApp.directive('focusError', function($timeout){
+
+// 	return {
+// 		restrict : 'C',
+// 		link : function(scope, element, attrs) {
+
+// 			$timeout(function(){
+// 				element('#search-input').focus();
+// 			}, 1000);
+
+// 		}
+// 	}
+
+// });
 
 WudApp.directive('cancelBooleanFirst', function(){
 
@@ -87,31 +147,6 @@ WudApp.directive('noLink', function() {
                     e.preventDefault();
                 });
             }
-        }
-   };
-});
-
-// hide boolean inputs on certain width
-WudApp.directive('mobileSearchType', function($window, $rootScope) {
-    return {
-    	restrict : 'A',
-        link: function(scope, element, attrs) {
-
-            angular.element($window).bind('resize', function(e){
-
-            	// $rootScope
-            	
-
-            	if($window.innerWidth < 660) {
-
-					$rootScope.basicinput = true;
-					$rootScope.booleaninput = false;
-					$rootScope.linkbasicclass = true;
-					$rootScope.linkbooleanclass = false;
-
-				}
-
-            });
         }
    };
 });

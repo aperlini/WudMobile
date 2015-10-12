@@ -1,16 +1,16 @@
 <ion-view>
               
-  <ion-content class="has-header has-subheader-detail">
+  <ion-content has-bouncing="false" class="has-header has-subheader-detail">
     
     <ul class="row actions positive">
       <li>
-        <a href="#" class="browse-to" ng-click="openExt(detail.link)">
+        <a href="#" class="browse-to no-link" ng-click="openExt(detail.link)">
           <div class="icon-link-ext-alt"></div>
           <span>{{ detail.api }}</span>
         </a>
       </li>
       <li>
-        <a href="#" class="browse-to" ng-click="openExt(detail.source)">
+        <a href="#" class="browse-to no-link" ng-click="openExt(detail.source)">
           <div class="icon-link"></div>
           <span>View Source</span>
         </a>

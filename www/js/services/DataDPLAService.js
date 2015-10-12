@@ -57,7 +57,7 @@ WudApp.factory('DataDPLAService', function(ItemsService){
 
 			} 
 
-			return '';
+			return 'no title';
 
 		},
 

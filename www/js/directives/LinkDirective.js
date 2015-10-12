@@ -7,35 +7,13 @@ WudApp.directive('browseTo', function ($window, $sce) {
 
     	var safeLink = $sce.trustAsHtml(link);
 
-       $window.open(safeLink, '_blank'); 
+       cordova.InAppBrowser.open(safeLink, '_blank', 'location=yes'); 
        return false;
 
     }
 
   }
  }
-});
-
-// hidding unifr logo on back button
-WudApp.directive('isBackButton', function($rootScope){
-
-	return {
-		restrict: 'C',
-		controller : function($scope) {
-
-
-			// $rootScope.$on('$ionicView.beforeEnter', function (e, data) { 
-			// 	if (data.enableBack) {
-			// 		$rootScope.isBackButton = data.enableBack;
-			// 	} else {
-
-			// 		$rootScope.isBackButton = false;
-					
-			// 	}
-			// });
-		}
-	}
-
 });
 
 WudApp.directive('noLink', function() {

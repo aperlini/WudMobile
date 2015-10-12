@@ -1,4 +1,4 @@
-<ion-view ng-init="initApp()" >
+<ion-view data-ng-init="initApp()" >
 
   <ion-nav-buttons side="right">
     <p id="nbr-results" class="button-right"><span class="icon-eye">{{ infos.items }}</span></p>
@@ -8,13 +8,13 @@
     <div class="bar bar-subheader item-input-inset" ng-class="{ 'search-scroll' : isScrollActive }" >
       <label class="item-input-wrapper" ng-class="!item.state ? '' : 'button-balanced'">
         <i class="icon ion-search placeholder-icon"></i>
-        <input type="search" id="search-input" placeholder="Search" ng-model="queryterm">
+        <input type="search" id="search-input" class="search-input" placeholder="Search" ng-model="queryterm">
       </label>
       <span id="resetquery" ng-hide="cancelbasicbtn" class="icon-cancel-circle cancelSearch"></span>
     </div>
   </form> 
 
-  <ion-content class="content-list" ng-class="{ 'has-subheader' : !isScrollActive }" on-scroll="getScrollState()">
+  <ion-content has-bouncing="false" class="content-list" ng-class="{ 'has-subheader' : !isScrollActive }" on-scroll="getScrollState()">
     
     <div ng-repeat="item in items" class="card" ng-click="showpanel(item.id)">
         <div class="item item-text-wrap body-img">
@@ -29,8 +29,14 @@
         </div>
         <i class="noLink icon-heart-empty liked ng-isolate-scope" source-id="{{ item.id }}" favorite-link-list stop-event></i>
     </div>
+    
+    <div ng-if="noMoreMsg" class="card">
+        <div class="item item-divider">
+          <p class="title">no more results</p>
+        </div>
+    </div>
 
      <ion-infinite-scroll ng-if="!noMoreItemsAvailable" immediate-check="false" on-infinite="loadmore()" distance="1%"></ion-infinite-scroll>
-
+  
   </ion-content>
 </ion-view>
