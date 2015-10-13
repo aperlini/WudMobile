@@ -28,13 +28,13 @@ WudApp.directive('cancelSearch', function($timeout){
 
 });
 
-WudApp.directive('searchInput', function($timeout){
+WudApp.directive('searchInput', function($timeout, $rootScope){
 
 	return {
 		restrict : 'C',
 		controller : function($scope, $element) {
 
-			$scope.$on('onError', function(){
+			$rootScope.$on('onError', function(){
 
 				// empty input
 				$scope.queryterm = '';
@@ -49,6 +49,8 @@ WudApp.directive('searchInput', function($timeout){
 				$timeout(function(){
 					$element[0].focus();
 				});
+
+				cordova.plugins.Keyboard.open();
 
 			});
 

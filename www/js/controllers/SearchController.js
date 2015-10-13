@@ -124,7 +124,7 @@ WudApp.controller('SearchCtrl', function($scope, $ionicLoading, ItemsService, Co
             text : 'ok',
             type : 'button-positive focus-error',
             onTap : function(e) {
-              $scope.$broadcast('onError');
+              $rootScope.$broadcast('onError');
               // angular.element('#search-input').focus();
               // $timeout(function(){
               //   $window.document.getElementById('search-input').focus();
@@ -197,7 +197,7 @@ WudApp.controller('SearchCtrl', function($scope, $ionicLoading, ItemsService, Co
         // No more result message
         $scope.noMoreMsg = false;
 
-        return false;
+        // return false;
 
       } else {
 
@@ -255,6 +255,8 @@ WudApp.controller('SearchCtrl', function($scope, $ionicLoading, ItemsService, Co
         // checking loadmore state
         if(MainDataService.loadMoreState) {
 
+           // No more result message
+          $scope.noMoreMsg = false;
           $scope.noMoreItemsAvailable = false;
           $scope.$broadcast('scroll.infiniteScrollComplete');
 

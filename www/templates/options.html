@@ -1,10 +1,14 @@
-<ion-view>
-  <div class="bar bar-subheader">
-    <h2 class="title icon-cog">Search Options</h2>
-  </div>
-  <!-- <ion-content class="padding has-subheader"> -->
+<ion-view view-title="WUD">
+  
+  <ion-nav-buttons side="left">
+    <img id="logo-unifr" class="button-left" ng-if="!isBackButton" ng-src="./img/uni-fr.svg" alt="logo unifr" width="25">
+  </ion-nav-buttons>
 
-  <ion-content has-bouncing="false" class="has-subheader">
+  <ion-content has-bouncing="false">
+  
+  <div class="subtitle">
+      <h2 class="title">Options</h2>
+    </div>
 
   <div id="options-list" class="list" options-status>
 

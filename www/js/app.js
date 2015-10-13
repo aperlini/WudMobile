@@ -71,6 +71,6 @@ WudApp.config(function($stateProvider, $urlRouterProvider) {
       }
     });
 
-    $urlRouterProvider.otherwise("tab/about");
+    $urlRouterProvider.otherwise("tab/results");
 
 });

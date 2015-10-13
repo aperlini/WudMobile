@@ -79,7 +79,7 @@ WudApp.controller('FavoritesCtrl', function($scope, $rootScope, FavoritesService
 	$scope.showPopupEmail = function() {
 
 		var popupmsg = $ionicPopup.show({
-			template: '<input type="email" class="focusInput">',
+			template: '<input type="email">',
 			title : 'Send Favorites',
 			subTitle : 'Please enter your email',
 			scope : $scope,
