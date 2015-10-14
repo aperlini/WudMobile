@@ -22,6 +22,9 @@ WudApp.directive('cancelSearch', function($timeout){
 				
 			});
 
+		},
+		controller : function($scope, $element) {
+			
 		}
  
 	}
