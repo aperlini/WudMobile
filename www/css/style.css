@@ -46,10 +46,6 @@ p.title {
 
 /* ----- Errors ----- */
 
-.bar.item-input-inset .item-input-wrapper.error {
-    border: solid 1px #FF0000;
-}
-
 .bar.item-input-inset .item-input-wrapper input.error {
     color: #FF0000;
 }

@@ -165,6 +165,9 @@ WudApp.controller('SearchCtrl', function($scope, $ionicLoading, ItemsService, Co
       languages : options['dpla']['languages'] 
     });
 
+    // console.log(options['edm']['languages']);
+    // console.log(options['dpla']['languages']);
+
     // Set current request
     var response = MainDataService.setRequest({
       edm : edmURI,

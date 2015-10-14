@@ -22,7 +22,6 @@ WudApp.factory('OptionsService', function(){
 		    ceil: 2000,
 		    floor: 0
 		},
-		timelineVal : '',
 		isTimelineActive : false,
 
 		getStatusTimeline : function() {
@@ -46,7 +45,7 @@ WudApp.factory('OptionsService', function(){
 
 				factory.isTimelineActive = true;
 
-				factory.timelineVal = {min : valueMin, max : valueMax};
+				factory.timelineValues = {min : valueMin, max : valueMax};
 
 			} else {
 
