@@ -16,6 +16,8 @@ WudApp.controller('SearchCtrl', function($scope, $ionicLoading, ItemsService, Co
   // No more result message
   $scope.noMoreMsg = false;
 
+  $scope.errorClass = false;
+
   // Favorites indicator
   if(FavoritesService.getCurrentNbrFavorites() > 0) {
     $rootScope.favoritesIndicator = FavoritesService.getCurrentNbrFavorites();
@@ -124,7 +126,7 @@ WudApp.controller('SearchCtrl', function($scope, $ionicLoading, ItemsService, Co
             text : 'ok',
             type : 'button-positive focus-error',
             onTap : function(e) {
-              $rootScope.$broadcast('onError');
+              // $rootScope.$broadcast('onError');
               // angular.element('#search-input').focus();
               // $timeout(function(){
               //   $window.document.getElementById('search-input').focus();
@@ -196,6 +198,8 @@ WudApp.controller('SearchCtrl', function($scope, $ionicLoading, ItemsService, Co
 
         // No more result message
         $scope.noMoreMsg = false;
+
+        $scope.errorClass = true;
 
         // return false;
 

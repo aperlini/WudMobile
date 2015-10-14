@@ -1,30 +1,36 @@
-WudApp.directive('cancelSearch', function($timeout){
+WudApp.directive('cancelSearch', function($timeout, $rootScope){
 
 	return {
 		restrict : 'C',
-		link : function(scope, element, attrs) {
+		// link : function(scope, element, attrs) {
 
-			element.bind('click', function(e){
+		// 	element.bind('click', function(e){
 
-				// empty input
-				scope.queryterm = '';
+		// 		// empty input
+		// 		scope.queryterm = '';
 
-				// hide cancel btn basic
-				scope.$apply('cancelbasicbtn = true');
+		// 		// hide cancel btn basic
+		// 		scope.$apply('cancelbasicbtn = true');
 
-				// if error reset class
-				scope.errorOnQuery = false;
+		// 		// if error reset class
+		// 		scope.errorOnQuery = false;
 
-				// focus input on cancel
-				$timeout(function(){
-					element.parent().find('input')[0].focus()
-				});
+		// 		// focus input on cancel
+		// 		$timeout(function(){
+		// 			element.parent().find('input')[0].focus()
+		// 		});
 				
-			});
+		// 	});
 
-		},
+		// },
 		controller : function($scope, $element) {
 			
+			$scope.cancelSearch = function() {
+				$rootScope.$broadcast('onError');
+
+				$scope.errorClass = false;
+			}
+
 		}
  
 	}
@@ -53,7 +59,7 @@ WudApp.directive('searchInput', function($timeout, $rootScope){
 					$element[0].focus();
 				});
 
-				cordova.plugins.Keyboard.open();
+				// cordova.plugins.Keyboard.open();
 
 			});
 
