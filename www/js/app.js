@@ -18,7 +18,7 @@ WudApp.run(function($ionicPlatform) {
   });
 });
 
-WudApp.config(function($stateProvider, $urlRouterProvider) {
+WudApp.config(function($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
 
   $stateProvider
     .state('tabs', {
@@ -72,5 +72,8 @@ WudApp.config(function($stateProvider, $urlRouterProvider) {
     });
 
     $urlRouterProvider.otherwise("tab/results");
+
+    $ionicConfigProvider.tabs.position('bottom');
+    $ionicConfigProvider.navBar.alignTitle('center');
 
 });

@@ -51,68 +51,72 @@ WudApp.controller('SearchCtrl', function($scope, $ionicLoading, ItemsService, Co
     // Get search term
     var currentSearch = $scope.queryterm;
 
-    // Show cancel search field btn
-    $scope.cancelbasicbtn = false;
+    if(currentSearch != '') {
 
-    // Set Current search value
-    ItemsService.setCurrentSearch(currentSearch);
+      // Show cancel search field btn
+      $scope.cancelbasicbtn = false;
 
-    // Reset items count
-    ItemsService.resetItemsCount();
+      // Set Current search value
+      ItemsService.setCurrentSearch(currentSearch);
 
-    // Reset Collections
-    CollectionsService.resetCollections();
+      // Reset items count
+      ItemsService.resetItemsCount();
 
-    // Reset Pagination
-    PaginationService.resetPagination();
+      // Reset Collections
+      CollectionsService.resetCollections();
 
-    // Reset Options
-    OptionsService.resetOptions();
+      // Reset Pagination
+      PaginationService.resetPagination();
 
-    // get options values
-    var optionsvalues = {
-      timeline : null,
-      mediatypes : null,
-      languages : null
-    };
+      // Reset Options
+      OptionsService.resetOptions();
 
-    // Get timeline values
-    if(OptionsService.getStatusTimeline()) {
-      optionsvalues['timeline'] = OptionsService.getTimelineValues();
-      // console.log(optionsvalues['timeline']);
+      // get options values
+      var optionsvalues = {
+        timeline : null,
+        mediatypes : null,
+        languages : null
+      };
+
+      // Get timeline values
+      if(OptionsService.getStatusTimeline()) {
+        optionsvalues['timeline'] = OptionsService.getTimelineValues();
+        // console.log(optionsvalues['timeline']);
+      }
+
+      // Get mediatypes values
+      if(OptionsService.getStatusMediatypes()) {
+        optionsvalues['mediatypes'] = OptionsService.getMediatypesElements();
+        // console.log(optionsvalues['mediatypes']);
+      }
+
+      // Get languages values
+      if(OptionsService.getStatusLanguages()) {
+        optionsvalues['languages'] = OptionsService.getLanguagesElements();
+        // console.log(optionsvalues['languages']);
+      }
+
+      // Set options
+      OptionsService.setOptionsEDM(optionsvalues);
+      OptionsService.setOptionsDPLA(optionsvalues);
+
+      // page loader
+      $ionicLoading.show({
+        template: '<ion-spinner icon="ios"></ion-spinner><p>Loading data</p>'
+      });
+
+      // Send request
+      $scope.sendQuery();
+
+      // scroll top
+      $timeout(function(){
+        $ionicScrollDelegate.scrollTop();
+      }, 400);
+      
+      // close keyboard after query has been sent
+      cordova.plugins.Keyboard.close();
+
     }
-
-    // Get mediatypes values
-    if(OptionsService.getStatusMediatypes()) {
-      optionsvalues['mediatypes'] = OptionsService.getMediatypesElements();
-      // console.log(optionsvalues['mediatypes']);
-    }
-
-    // Get languages values
-    if(OptionsService.getStatusLanguages()) {
-      optionsvalues['languages'] = OptionsService.getLanguagesElements();
-      // console.log(optionsvalues['languages']);
-    }
-
-    // Set options
-    OptionsService.setOptionsEDM(optionsvalues);
-    OptionsService.setOptionsDPLA(optionsvalues);
-
-    // page loader
-    $ionicLoading.show({
-      template: '<ion-spinner icon="ios"></ion-spinner><p>Loading data</p>'
-    });
-
-    // Send request
-    $scope.sendQuery();
-
-    // scroll top
-    $timeout(function(){
-      $ionicScrollDelegate.scrollTop();
-    }, 400);
-    
-    // close keyboard after query has been sent
-    // cordova.plugins.Keyboard.close();
 
   };
 
