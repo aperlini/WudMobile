@@ -460,6 +460,24 @@ ul.actions-favorites {
   text-align: center;
 }
 
+.form-email {
+  position:relative;
+  height:74px;
+}
+
+.form-email.isLoading {
+  line-height:74px;
+  text-align: center;
+}
+
+.form-email .spinner {
+  vertical-align:middle;
+  text-align:center;
+}
+
+.popup-buttons {
+  padding:10px 0;
+}
 
 /* ----- about ----- */
 

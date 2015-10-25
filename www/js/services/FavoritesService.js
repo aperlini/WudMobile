@@ -1,8 +1,9 @@
-WudApp.factory('FavoritesService', function(CollectionsService){
+WudApp.factory('FavoritesService', function(CollectionsService, $http, $q){
 
 	var factory = { 
 
 		favoritesArr : [],
+		emailResponse : '',
  
 		addFavorite : function(current) {
 
@@ -177,6 +178,29 @@ WudApp.factory('FavoritesService', function(CollectionsService){
 				}
 
 			} 
+		},
+
+		sendFavorites : function(email) {
+
+			if(factory.favoritesArr.length > 0 && email != '') {
+
+				var favorite =  localStorage.getItem('favorites');
+
+				var url = 'http://wudmobile.radusuciu.eu/mail/index.php';
+
+				var deferred = $q.defer();
+
+				$http.post(url, {data : favorite, adress : email})
+					.then(function(emailResponse){
+						deferred.resolve({msg : emailResponse});
+					}, function(error){
+						return deferred.reject(error);
+					});
+
+				return deferred.promise;
+
+			}
+
 		}
 
 	};

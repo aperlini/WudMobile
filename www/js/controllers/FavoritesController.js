@@ -1,4 +1,4 @@
-WudApp.controller('FavoritesCtrl', function($scope, $rootScope, FavoritesService, $window, $ionicPopup, $timeout, $ionicScrollDelegate){
+WudApp.controller('FavoritesCtrl', function($scope, $rootScope, FavoritesService, $window, $ionicPopup, $timeout, $ionicScrollDelegate, ModalService){
 
 	// Checking Favorites
 	var checkFavorites = function() {
@@ -75,29 +75,70 @@ WudApp.controller('FavoritesCtrl', function($scope, $rootScope, FavoritesService
 	    }, 400);
 	}
 
+	$scope.emailLoader = false;
+
 	// Popup email
 	$scope.showPopupEmail = function() {
 
+		$scope.user = {};
+		$scope.user.email = '';
+		$scope.user.error = '';
+		$scope.user.success = '';
+		$scope.submitTriggered = false;
+		$scope.ajaxError = false;
+		$scope.ajaxSuccess = false;
+
 		var popupmsg = $ionicPopup.show({
-			template: '<input type="email">',
+			templateUrl: 'templates/popupemail.html',
 			title : 'Send Favorites',
 			subTitle : 'Please enter your email',
-			scope : $scope,
-			buttons : [
-				{ text : 'cancel' },
-				{ 
-					text : '<b>send</b>',
-					type : 'button-positive',
-					onTap : function(e) {
-						e.preventDefault();
-						this.close();
-						console.log('mail service');
-					}
-				}
-			]
+			scope : $scope
 		});
 
-		
+		popupmsg.then(function(email){
+
+		});
+
+		$scope.cancelPopup = function() {
+			popupmsg.close();
+			
+		}
+
+		$scope.submitForm = function() {
+
+			if($scope.user.email != '') {
+
+				$scope.submitTriggered = true;
+				$scope.emailLoader = true;
+
+				var response = FavoritesService.sendFavorites($scope.user.email);
+
+				response.then(function(response){
+
+					$scope.emailLoader = false;
+
+					if(response.msg.status == '200') {
+
+						ModalService.setMsg('<strong>Success</strong>', '<br/>Your email was successfully sent');
+						$scope.user.success = ModalService.getMsg();
+						$scope.ajaxSuccess = true;
+						$timeout(function(){
+							popupmsg.close();
+						}, 3000);
+					}
+
+				}, function(error){
+
+					$scope.emailLoader = false;
+					ModalService.setMsg(error.status, error.statusText);
+					$scope.user.error = ModalService.getMsg();
+					$scope.ajaxError = true;
+
+				});
+
+			}
+
+		}
 
 	}
 

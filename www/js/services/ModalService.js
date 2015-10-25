@@ -1,6 +1,8 @@
-wudApp.factory('ModalService', function(){
+WudApp.factory('ModalService', function($sce){
 
 	var factory = {
+
+		msg : '',
 
 		onerror :  {
 			title : 'Oups : "Unavailable Services"',
@@ -15,6 +17,18 @@ wudApp.factory('ModalService', function(){
 		onload : {
 			title : 'Loading data...',
 			message : '<div id="loader-wrap"><img src="img/ajax-loader.gif" alt=""></div>'
+		},
+
+		setMsg : function(title, body) {
+
+			factory.msg = '<strong>'+title+'</strong> : ' + body;
+
+		},
+
+		getMsg : function() {
+
+			return factory.msg;
+
 		}
 
 	};

@@ -179,7 +179,7 @@ WudApp.controller('SearchCtrl', function($scope, $ionicLoading, ItemsService, Co
     });
 
     response.then(function(data){
-
+ 
       // 1) check results
       var checkedResults = MainDataService.checkResults(data);
 
@@ -288,23 +288,6 @@ WudApp.controller('SearchCtrl', function($scope, $ionicLoading, ItemsService, Co
       $timeout(function(){
         // Dismiss modal
         $ionicLoading.hide();
-
-        // var alertPopup = $ionicPopup.alert({
-        //    title: 'Oups : "no matching results"',
-        //    template: '<p> No results for"" </p>',
-        //    buttons : [
-        //       {
-        //         text : 'ok',
-        //         onTap : function(e) {
-        //           $scope.queryterm = '';
-        //           // $timeout(function(){
-        //           //   $window.document.getElementById('search-input').focus();
-        //           // });
-        //         }
-        //       }
-        //    ]
-        //  });
-
         alert(error.status + ' : ' + error.statusText);
 
       }, 750);
