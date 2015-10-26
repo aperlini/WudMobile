@@ -10,8 +10,11 @@ WudApp.factory('FavoritesService', function(CollectionsService, $http, $q){
 			// checking if any previous favorites registered in storage
 			factory.favoritesArr = factory.getFavoritesList();
 
-			factory.favoritesArr.unshift(CollectionsService.getItemById(current));
-			localStorage.setItem('favorites', JSON.stringify(factory.favoritesArr));
+			if(factory.favoritesArr.length < 20) {
+				factory.favoritesArr.unshift(CollectionsService.getItemById(current));
+				localStorage.setItem('favorites', JSON.stringify(factory.favoritesArr));
+			}
+			
 		},
 
 		getFavoritesList : function() {
