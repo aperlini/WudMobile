@@ -12,7 +12,7 @@
     <div class="bar bar-subheader item-input-inset" ng-class="{ 'search-scroll' : isScrollActive }" >
       <label class="item-input-wrapper" ng-class="!item.state ? '' : 'button-balanced'">
         <i class="icon ion-search placeholder-icon"></i>
-        <input type="search" id="search-input" class="search-input" placeholder="Search" ng-model="queryterm" ng-class="{ 'error' : errorClass }">
+        <input type="search" id="search-input" class="search-input" placeholder="Search" ng-focus="setFocus()" ng-model="queryterm" ng-class="{ 'error' : errorClass }"> 
       </label>
       <span id="resetquery" ng-hide="cancelbasicbtn" ng-click="cancelSearch()" class="icon-cancel-circle cancelSearch"></span>
     </div>

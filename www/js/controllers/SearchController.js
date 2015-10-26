@@ -114,7 +114,7 @@ WudApp.controller('SearchCtrl', function($scope, $ionicLoading, ItemsService, Co
       }, 400);
       
       // close keyboard after query has been sent
-      cordova.plugins.Keyboard.close();
+      // cordova.plugins.Keyboard.close();
 
     }
 
@@ -291,8 +291,6 @@ WudApp.controller('SearchCtrl', function($scope, $ionicLoading, ItemsService, Co
         alert(error.status + ' : ' + error.statusText);
 
       }, 750);
-
-
 
       console.log(error);
 

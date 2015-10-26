@@ -37,17 +37,29 @@ WudApp.directive('cancelSearch', function($timeout, $rootScope){
 
 });
 
-WudApp.directive('searchInput', function($timeout, $rootScope){
+WudApp.directive('searchInput', function($timeout, $rootScope, $parse){
 
 	return {
 		restrict : 'C',
 		controller : function($scope, $element) {
 
+			$scope.setFocus = function() {
+
+				if($scope.errorClass) {
+
+					$scope.errorClass = false;
+
+				}
+
+				console.log('focus set');
+
+			}
+
 			$rootScope.$on('onError', function(){
 
 				// empty input
 				$scope.queryterm = '';
-
+ 
 				// hide cancel btn basic
 				$scope.cancelbasicbtn = true;
 
