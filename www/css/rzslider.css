@@ -14,9 +14,9 @@
 rzslider {
   position: relative;
   display: inline-block;
-  width: 80%;
+  width: 100%;
   height: 4px;
-  margin: 30px 10% 30px 10%;
+  margin: 30px 0;
   vertical-align: middle;
 }
 
@@ -66,16 +66,16 @@ rzslider span.rz-bar.rz-selection {
 rzslider span.rz-pointer {
   /*top: -14px;*/
   z-index: 2;
-  /*width: 32px;
-  height: 32px;*/
+  width: 32px;
+  height: 32px;
   top:-9px; /* -10px */
-  width:3px; /* 4px */
+  width:5px; /* 4px */
   height:20px; /* 25px */
   cursor: pointer;
   background-color: #CA4452;
- /* -webkit-border-radius: 16px;
+  -webkit-border-radius: 16px;
      -moz-border-radius: 16px;
-          border-radius: 16px;*/
+          border-radius: 16px;
 }
 
 rzslider span.rz-pointer:after {
@@ -131,3 +131,4 @@ span.rz-bubble.rz-limit {
   color: #55637d;
   background:none;
 }
+

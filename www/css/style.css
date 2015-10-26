@@ -370,6 +370,10 @@ div.content p {
   border-color:#204d74;
 }
 
+#options-list {
+  margin-top:10px;
+}
+
 #options-list a span {
   font-size:9px;
 }

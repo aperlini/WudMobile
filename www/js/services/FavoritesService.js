@@ -186,7 +186,7 @@ WudApp.factory('FavoritesService', function(CollectionsService, $http, $q){
 
 				var favorite =  localStorage.getItem('favorites');
 
-				var url = 'http://wudmobile.radusuciu.eu/mail/index.php';
+				var url = 'http://www.unifr.ch/mh/wud/mailwudmobile/index.php';
 
 				var deferred = $q.defer();
 

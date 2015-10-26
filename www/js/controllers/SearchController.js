@@ -128,14 +128,7 @@ WudApp.controller('SearchCtrl', function($scope, $ionicLoading, ItemsService, Co
        buttons : [
           {
             text : 'ok',
-            type : 'button-positive focus-error',
-            onTap : function(e) {
-              // $rootScope.$broadcast('onError');
-              // angular.element('#search-input').focus();
-              // $timeout(function(){
-              //   $window.document.getElementById('search-input').focus();
-              // });
-            }
+            type : 'button-positive focus-error'
           }
        ]
      });
@@ -168,9 +161,6 @@ WudApp.controller('SearchCtrl', function($scope, $ionicLoading, ItemsService, Co
       timeline : options['dpla']['timeline'],
       languages : options['dpla']['languages'] 
     });
-
-    // console.log(options['edm']['languages']);
-    // console.log(options['dpla']['languages']);
 
     // Set current request
     var response = MainDataService.setRequest({
@@ -208,14 +198,14 @@ WudApp.controller('SearchCtrl', function($scope, $ionicLoading, ItemsService, Co
 
         $scope.errorClass = true;
 
-        // return false;
-
       } else {
 
         $timeout(function(){
           // Dismiss modal
           $ionicLoading.hide();
         }, 750);
+
+         $scope.errorClass = false;
 
         // Update current collections
         CollectionsService.updateCurrentCollections(itemsCollections);
