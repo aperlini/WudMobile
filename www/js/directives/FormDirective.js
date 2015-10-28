@@ -30,8 +30,6 @@ WudApp.directive('searchInput', function($timeout, $rootScope, $parse){
 
 				}
 
-				console.log('focus set');
-
 			}
 
 			$rootScope.$on('onError', function(){

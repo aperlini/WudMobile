@@ -81,19 +81,16 @@ WudApp.controller('SearchCtrl', function($scope, $ionicLoading, ItemsService, Co
       // Get timeline values
       if(OptionsService.getStatusTimeline()) {
         optionsvalues['timeline'] = OptionsService.getTimelineValues();
-        // console.log(optionsvalues['timeline']);
       }
 
       // Get mediatypes values
       if(OptionsService.getStatusMediatypes()) {
         optionsvalues['mediatypes'] = OptionsService.getMediatypesElements();
-        // console.log(optionsvalues['mediatypes']);
       }
 
       // Get languages values
       if(OptionsService.getStatusLanguages()) {
         optionsvalues['languages'] = OptionsService.getLanguagesElements();
-        // console.log(optionsvalues['languages']);
       }
 
       // Set options
@@ -221,7 +218,6 @@ WudApp.controller('SearchCtrl', function($scope, $ionicLoading, ItemsService, Co
           currentCollection[i]['title'].length > 40 ? title = currentCollection[i]['title'].substring(0,40)+'...' : title = currentCollection[i]['title'];
 
           reformat.push({
-            
             api : currentCollection[i]['api'],
             date : currentCollection[i]['date'],
             desc : currentCollection[i]['desc'],
@@ -232,7 +228,6 @@ WudApp.controller('SearchCtrl', function($scope, $ionicLoading, ItemsService, Co
             source : currentCollection[i]['source'],
             title : title,
             type : currentCollection[i]['type']
-            
           });
 
         }
@@ -281,8 +276,6 @@ WudApp.controller('SearchCtrl', function($scope, $ionicLoading, ItemsService, Co
         alert(error.status + ' : ' + error.statusText);
 
       }, 750);
-
-      console.log(error);
 
     });
 

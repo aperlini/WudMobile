@@ -58,13 +58,9 @@ WudApp.directive('favoriteLinkList', function($rootScope, FavoritesService){
 					elem.removeClass('active');
 					isFavorited = false;
 				} else {
-					if(FavoritesService.getCurrentNbrFavorites() < 20) {
-						FavoritesService.addFavorite(currentID);
-						elem.addClass('active');
-						isFavorited = true;
-					} else {
-						alert('Too many favorites. please manage your favorites');
-					}
+					FavoritesService.addFavorite(currentID);
+					elem.addClass('active');
+					isFavorited = true;
 				}
 
 				$rootScope.$broadcast('favoritesEventList', {id : currentID, state : isFavorited});
@@ -145,13 +141,9 @@ WudApp.directive('favoriteLinkDetail', function($rootScope, FavoritesService){
 					elem.children('#favorite-icon').removeClass('icon-heart active');
 					isFavorited = false;
 				} else {
-					if(FavoritesService.getCurrentNbrFavorites() < 20) {
-						FavoritesService.addFavorite(currentID);
-						elem.children('#favorite-icon').addClass('icon-heart active');
-						isFavorited = true;
-					} else {
-						alert('Too many favorites. please manage your favorites');
-					}
+					FavoritesService.addFavorite(currentID);
+					elem.children('#favorite-icon').addClass('icon-heart active');
+					isFavorited = true;
 				}
 
 				$rootScope.$broadcast('favoritesEventDetail', {id : currentID, state : isFavorited});
@@ -181,5 +173,3 @@ WudApp.directive('stopEvent', function(){
 		}
 	}
 });
-
-
