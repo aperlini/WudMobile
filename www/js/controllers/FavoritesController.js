@@ -85,7 +85,7 @@ WudApp.controller('FavoritesCtrl', function($scope, $rootScope, FavoritesService
 			bodytext += '<tbody><tr><td width="100%" height="5"></td></tr><tr><td align="right" valign="middle" style="font-family: Helvetica, arial, sans-serif; font-size: 10px;color: #999999" st-content="preheader"></td></tr>';
 			bodytext += '<tr><td width="100%" height="5"></td></tr></tbody></table></td></tr></tbody></table></div>';
 
-			// Logo + Title (second block)
+			Logo + Title (second block)
 			bodytext += '<div class="block"><table width="100%" bgcolor="#f6f4f5" cellpadding="0" cellspacing="0" border="0" id="backgroundTable" st-sortable="header">';
 			bodytext += '<tbody><tr><td><table width="580" bgcolor="#25313e" cellpadding="0" cellspacing="0" border="0" align="center" class="devicewidth" hlitebg="edit" shadow="edit">';
 			bodytext += '<tbody><tr><td><table width="70" cellpadding="0" cellspacing="0" border="0" align="left" class="devicewidth">';
@@ -95,7 +95,7 @@ WudApp.controller('FavoritesCtrl', function($scope, $rootScope, FavoritesService
 			bodytext += '<tbody><tr><td width="510" valign="middle" style="font-family: Open sans, Arial, sans-serif;font-size: 14px; color: #ffffff;line-height: 31px; padding: 10px 0; letter-spacing:0.1em;" align="right" class="menu" st-content="menu">';
 			bodytext += 'WUDMOBILE</td><td width="20"></td></tr></tbody></table></td></tr></tbody></table></td></tr></tbody></table></div>';
 
-			// BG img + Favorites title (third block)
+			BG img + Favorites title (third block)
 			bodytext += '<div class="block"><table width="100%" bgcolor="#f6f4f5" cellpadding="0" cellspacing="0" border="0" id="backgroundTable" st-sortable="bigimage">';
 			bodytext += '<tbody><tr><td><table bgcolor="#ffffff" width="580" align="center" cellspacing="0" cellpadding="0" border="0" class="devicewidth" modulebg="edit">';
 			bodytext += '<tbody><tr><td><table width="580" align="center" cellspacing="0" cellpadding="0" border="0" class="devicewidthinner">';
@@ -106,9 +106,11 @@ WudApp.controller('FavoritesCtrl', function($scope, $rootScope, FavoritesService
 			bodytext += '<tbody><tr><td width="580" valign="middle" style="font-family: Open sans, Arial, sans-serif;font-size: 12px; color: #ffffff;line-height: 14px; padding: 10px 0 10px 20px; letter-spacing:0.1em;" align="left" class="menu" st-content="menu">';
 			bodytext += 'Favorites</td><td width="20"></td></tr></tbody></table></td></tr></tbody></table></td></tr></tbody></table></td></tr></tbody></table></td></tr></tbody></table></div>';
 
+
 			// start loop
 			var nbrFavorites = FavoritesService.getCurrentNbrFavorites(),
 				favoritesList = FavoritesService.getFavoritesList();
+
 
 			for(var i=0; i<favoritesList.length; i++) {
 
@@ -159,8 +161,8 @@ WudApp.controller('FavoritesCtrl', function($scope, $rootScope, FavoritesService
 
 		window.plugin.email.open({
                 to:          [], 
-                cc:          Array, 
-                bcc:         Array, 
+                cc:          [], 
+                bcc:         [], 
                 attachments: [],
                 subject:    "Favorites WudMobile", 
                 body:       bodytext, 
