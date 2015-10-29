@@ -288,25 +288,6 @@ p.info {
   margin-bottom:0;
 }
 
-ul.actions {
-  margin:0;
-  padding:0;
-}
-
-ul.actions li {
-  width:33.3%;
-  text-align: center;
-  font-size:11px;
-  margin:0;
-  padding:5px 0;
-  color:#000;
-}
-
-ul.actions li a {
-  color:#000;
-  text-decoration: none;
-}
-
 .bar-footer {
   margin:0;
   padding:0;
@@ -343,6 +324,13 @@ div.content p {
 
 .has-subheader-detail.has-footer.has-tabs {
   bottom:50px;
+}
+
+.button-bar.favorites > .button {
+  font-size:11px;
+  line-height:19px;
+  padding:6px 0;
+  border:none;
 }
 
 /* ----- options-list ----- */
