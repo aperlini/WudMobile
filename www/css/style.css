@@ -479,9 +479,9 @@ ul.actions-favorites {
   text-align:center;
 }
 
-.popup-buttons {
+.popup-buttons.favorites {
   padding:10px 0;
-}
+} 
 
 /* ----- about ----- */
 

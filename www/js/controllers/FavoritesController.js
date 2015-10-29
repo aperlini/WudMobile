@@ -109,7 +109,7 @@ WudApp.controller('FavoritesCtrl', function($scope, $rootScope, FavoritesService
 			if($scope.user.email != '') {
 
 				$scope.submitTriggered = true;
-				$scope.emailLoader = true;
+				$scope.emailLoader = true; 
 
 				var response = FavoritesService.sendFavorites($scope.user.email);
 
