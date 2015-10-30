@@ -1,4 +1,4 @@
-WudApp.directive('favoriteLinkList', function($rootScope, FavoritesService){
+WudApp.directive('favoriteLinkList', function($rootScope, FavoritesService, $ionicPopup){
 
 	return {
 		restrict : 'A',
@@ -63,7 +63,13 @@ WudApp.directive('favoriteLinkList', function($rootScope, FavoritesService){
 						elem.addClass('active');
 						isFavorited = true;
 					} else {
-						alert('Too many favorites. please manage your favorites');
+						var alertPopup = $ionicPopup.alert({
+						     title: 'Too many favorites',
+						     template: 'Please manage your favorites'
+						   });
+						   alertPopup.then(function(res) {
+						     console.log('done');
+						   });
 					}
 				}
 
@@ -78,6 +84,8 @@ WudApp.directive('favoriteLinkList', function($rootScope, FavoritesService){
 
 				$rootScope.$apply();
 
+				return false;
+
 			});
 		}
 		
@@ -85,7 +93,7 @@ WudApp.directive('favoriteLinkList', function($rootScope, FavoritesService){
 
 }); 
 
-WudApp.directive('favoriteLinkDetail', function($rootScope, FavoritesService){
+WudApp.directive('favoriteLinkDetail', function($rootScope, FavoritesService, $ionicPopup){
 
 	return {
 		restrict : 'A',
@@ -150,7 +158,13 @@ WudApp.directive('favoriteLinkDetail', function($rootScope, FavoritesService){
 						elem.children('#favorite-icon').addClass('icon-heart active');
 						isFavorited = true;
 					} else {
-						alert('Too many favorites. please manage your favorites');
+						var alertPopup = $ionicPopup.alert({
+					     title: 'Too many favorites',
+					     template: 'Please manage your favorites'
+					   });
+					   alertPopup.then(function(res) {
+					     console.log('done');
+					   });
 					}
 				}
 
@@ -164,6 +178,8 @@ WudApp.directive('favoriteLinkDetail', function($rootScope, FavoritesService){
 				}
 
 				$rootScope.$apply();
+
+				return false;
 
 			});
 		}
