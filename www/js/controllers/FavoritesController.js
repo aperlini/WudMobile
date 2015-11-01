@@ -85,7 +85,7 @@ WudApp.controller('FavoritesCtrl', function($scope, $rootScope, FavoritesService
 		for(var i=0; i<favoritesList.length; i++) {
 			
 			bodytext += '<p>'+favoritesList[i]['title']+'</p>';
-			bodytext += '<a href="'+favoritesList[i]['link']+'">Link '+favoritesList[i]['api']+'</a>';
+			bodytext += '<a href="'+favoritesList[i]['link']+'">'+favoritesList[i]['link']+'</a>';
 			bodytext += '<hr/>';
 		}
 
