@@ -89,42 +89,6 @@ WudApp.controller('FavoritesCtrl', function($scope, $rootScope, FavoritesService
 			bodytext += '<hr/>';
 		}
 
-		$scope.submitForm = function() {
-
-			if($scope.user.email != '') {
-
-				$scope.submitTriggered = true;
-				$scope.emailLoader = true; 
-
-				var response = FavoritesService.sendFavorites($scope.user.email);
-
-				response.then(function(response){
-
-					$scope.emailLoader = false;
-
-					if(response.msg.status == '200') {
-
-						ModalService.setMsg('<strong>Success</strong>', '<br/>Your email was successfully sent');
-						$scope.user.success = ModalService.getMsg();
-						$scope.ajaxSuccess = true;
-						$timeout(function(){
-							popupmsg.close();
-						}, 3000);
-					}
-
-				}, function(error){
-
-					$scope.emailLoader = false;
-					ModalService.setMsg(error.status, error.statusText);
-					$scope.user.error = ModalService.getMsg();
-					$scope.ajaxError = true;
-
-				});
-
-			}
-
-		}
-
 		window.plugin.email.open({
                 to:          [], 
                 cc:          [], 
