@@ -63,22 +63,33 @@ rzslider span.rz-bar.rz-selection {
           border-radius: 2px;
 }
 
-rzslider span.rz-pointer {
-  /*top: -14px;*/
+/*rzslider span.rz-pointer {
   z-index: 2;
   width: 32px;
   height: 32px;
-  top:-9px; /* -10px */
-  width:5px; /* 4px */
-  height:20px; /* 25px */
+  top:-9px; 
+  width:15px; 
+  height:20px; 
   cursor: pointer;
   background-color: #CA4452;
   -webkit-border-radius: 16px;
      -moz-border-radius: 16px;
           border-radius: 16px;
+}*/
+
+rzslider .rz-pointer {
+  top: -14px;
+  z-index: 3;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  background-color: #ED5565;
+  -webkit-border-radius: 16px;
+     -moz-border-radius: 16px;
+          border-radius: 16px;
 }
 
-rzslider span.rz-pointer:after {
+/*rzslider span.rz-pointer:after {
   position: absolute;
   top: 12px;
   left: 12px;
@@ -90,7 +101,21 @@ rzslider span.rz-pointer:after {
           border-radius: 4px;
   content: '';
   display:none;
+}*/
+
+rzslider .rz-pointer:after {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  width: 8px;
+  height: 8px;
+  background: #ffffff;
+  -webkit-border-radius: 4px;
+     -moz-border-radius: 4px;
+          border-radius: 4px;
+  content: '';
 }
+
 
 rzslider span.rz-pointer:hover:after {
   background-color: #ffffff;

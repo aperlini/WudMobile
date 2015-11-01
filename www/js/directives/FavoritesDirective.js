@@ -1,4 +1,4 @@
-WudApp.directive('favoriteLinkList', function($rootScope, FavoritesService){
+WudApp.directive('favoriteLinkList', function($rootScope, FavoritesService, $ionicPopup){
 
 	return {
 		restrict : 'A',
@@ -74,6 +74,8 @@ WudApp.directive('favoriteLinkList', function($rootScope, FavoritesService){
 
 				$rootScope.$apply();
 
+				return false;
+
 			});
 		}
 		
@@ -81,7 +83,7 @@ WudApp.directive('favoriteLinkList', function($rootScope, FavoritesService){
 
 }); 
 
-WudApp.directive('favoriteLinkDetail', function($rootScope, FavoritesService){
+WudApp.directive('favoriteLinkDetail', function($rootScope, FavoritesService, $ionicPopup){
 
 	return {
 		restrict : 'A',
@@ -156,6 +158,8 @@ WudApp.directive('favoriteLinkDetail', function($rootScope, FavoritesService){
 				}
 
 				$rootScope.$apply();
+
+				return false;
 
 			});
 		}

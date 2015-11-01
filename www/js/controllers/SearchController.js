@@ -200,7 +200,7 @@ WudApp.controller('SearchCtrl', function($scope, $ionicLoading, ItemsService, Co
         $timeout(function(){
           // Dismiss modal
           $ionicLoading.hide();
-        }, 750);
+        }, 2000);
 
          $scope.errorClass = false;
 

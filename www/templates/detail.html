@@ -2,26 +2,21 @@
               
   <ion-content has-bouncing="false" class="has-header has-subheader-detail">
     
-    <ul class="row actions positive">
-      <li>
-        <a href="#" class="browse-to no-link" ng-click="openExt(detail.link)">
-          <div class="icon-link-ext-alt"></div>
-          <span>{{ detail.api }}</span>
-        </a>
-      </li>
-      <li>
-        <a href="#" class="browse-to no-link" ng-click="openExt(detail.source)">
-          <div class="icon-link"></div>
-          <span>View Source</span>
-        </a>
-      </li> 
-      <li>
-        <a href="#" source-id="{{ detail.id }}" favorite-link-detail>
-          <div id="favorite-icon" source-id="{{detail.id}}" class="icon-heart-empty" ng-class="{'active icon-heart' : isFavoriteDetail}"></div>
-        </a> 
-        <div class="link-detail">Add to favorites</div>
-      </li>
-    </ul>
+    <div class="button-bar favorites">
+      <a href="#" class="browse-to no-link button" ng-click="openExt(detail.link)">
+        <div class="icon-link-ext-alt"></div>
+        <span>{{ detail.api }}</span>
+      </a>
+      <a href="#" class="browse-to no-link button" ng-click="openExt(detail.source)">
+        <div class="icon-link"></div>
+        <span>View Source</span>
+      </a>
+      <a href="#" source-id="{{ detail.id }}" class="no-link button" favorite-link-detail>
+        <div id="favorite-icon" source-id="{{detail.id}}" class="icon-heart-empty" ng-class="{'active icon-heart' : isFavoriteDetail}">
+          <div class="link-detail" >Add to favorites</div>
+        </div>
+      </a> 
+    </div>
  
     <div class="img-wrapper detail imagebox">
       <img ng-src="{{ detail.image }}" alt="{{ detail.image }}" >
