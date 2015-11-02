@@ -77,7 +77,7 @@ WudApp.controller('FavoritesCtrl', function($scope, $rootScope, FavoritesService
 
 	$scope.openMailApp = function() {
 
-		var bodytext = '',
+		var bodytext = '<strong>Favorites found and sent with WudMobile, a cultural curation app & website developed by the Medicine and Society chair at the University of Fribourg. </strong>',
 		    nbrFavorites = FavoritesService.getCurrentNbrFavorites(),
 			favoritesList = FavoritesService.getFavoritesList();
 
