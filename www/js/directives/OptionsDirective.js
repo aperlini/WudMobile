@@ -4,7 +4,6 @@ WudApp.directive('optionTimeline', function(OptionsService, $rootScope){
 		restrict : 'A',
 		controller : function($scope) {
 
-
 			$scope.$watchGroup(['priceSlider.min', 'priceSlider.max'], function(val) {
 
 				OptionsService.setTimeline(val);

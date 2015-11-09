@@ -7,7 +7,7 @@ WudApp.directive('favoriteLinkList', function($rootScope, FavoritesService, $ion
 		},
 		link : function(scope, elem, attrs) {
 
-			// when favorites is triggered from detail
+			// when favorite is triggered from detail
 			$rootScope.$on('favoritesEventDetail', function(e, args){
 
 				e.preventDefault();
@@ -93,7 +93,7 @@ WudApp.directive('favoriteLinkDetail', function($rootScope, FavoritesService, $i
 		// require : 'favoriteLinkList',
 		link : function(scope, elem, attrs) {
 			
-			// when favorites is triggered from list
+			// when favorite is triggered from list
 			$rootScope.$on('favoritesEventList', function(e, args){
 
 				e.preventDefault(); 

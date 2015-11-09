@@ -71,56 +71,6 @@ WudApp.directive('focusInput', function($timeout){
 
 });
 
-WudApp.directive('cancelBooleanFirst', function(){
-
-	return {
-		restrict : 'C',
-		link : function(scope, element, attrs) {
-
-			element.bind('click', function(e){
-
-				// empty input
-				scope.booleanquery.first = '';
-
-				// hide cancel btn boolean first
-				scope.$apply('cancelfirstbtn = true');
-
-				// set focus on form
-				element.parent().find('input')[0].focus();
-
-			});
-
-		}
- 
-	}
-
-});
-
-WudApp.directive('cancelBooleanSecond', function(){
-
-	return {
-		restrict : 'C',
-		link : function(scope, element, attrs) {
-
-			element.bind('click', function(e){
-
-				// empty input
-				scope.booleanquery.second = '';
-
-				// hide cancel btn boolean second
-				scope.$apply('cancelsecondbtn = true');
-
-				// set focus on form
-				element.parent().find('input')[0].focus();
-
-			});
-
-		}
- 
-	}
-
-});
-
 WudApp.directive('noLink', function() {
     return {
         restrict: 'C',
@@ -133,4 +83,3 @@ WudApp.directive('noLink', function() {
         }
    };
 });
-

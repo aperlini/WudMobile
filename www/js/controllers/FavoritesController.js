@@ -84,9 +84,10 @@ WudApp.controller('FavoritesCtrl', function($scope, $rootScope, FavoritesService
 
 		for(var i=0; i<favoritesList.length; i++) {
 			
+			bodytext += '<hr/>';
 			bodytext += '<p>'+favoritesList[i]['title']+'</p>';
 			bodytext += '<a href="'+favoritesList[i]['link']+'">'+favoritesList[i]['link']+'</a>';
-			bodytext += '<hr/>';
+			
 		}
 
 		window.plugin.email.open({

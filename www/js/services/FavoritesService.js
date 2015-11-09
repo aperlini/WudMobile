@@ -13,7 +13,6 @@ WudApp.factory('FavoritesService', function(CollectionsService, $http, $q){
 			factory.favoritesArr.unshift(CollectionsService.getItemById(current));
 			localStorage.setItem('favorites', JSON.stringify(factory.favoritesArr));
 
-			
 		},
 
 		getFavoritesList : function() {

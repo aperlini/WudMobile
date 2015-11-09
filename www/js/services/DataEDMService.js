@@ -171,18 +171,6 @@ WudApp.factory('DataEDMService', function($http, $q, ItemsService){
 				url = factory.base + method + id + type + factory.key,
 				deferred = $q.defer();
 
-			// $http.get(url).success(function(response, status){
-
-			// 	factory.dataDetail = response;
-			// 	deferred.resolve(factory.dataDetail);
-
-
-			// }).error(function(error, status){
-
-			// 	deferred.reject('Impossible d\'accéder à Europeana');
-
-			// });
-
 			$http.jsonp(url+'&callback=JSON_CALLBACK').success(function(response, status){
 
 				factory.dataDetail = response;

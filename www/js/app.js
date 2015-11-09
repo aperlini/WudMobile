@@ -72,7 +72,7 @@ WudApp.config(function($stateProvider, $urlRouterProvider, $ionicConfigProvider)
     });
 
     $urlRouterProvider.otherwise("tab/results");
-
+    
     $ionicConfigProvider.tabs.position('bottom');
     $ionicConfigProvider.navBar.alignTitle('center');
 
